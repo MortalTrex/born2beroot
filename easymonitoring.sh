@@ -14,7 +14,7 @@ TCP=$(grep TCP /proc/net/sockstat | awk '{print $3}')
 USER_LOG=$(who | wc -l)
 IP_ADDR=$(hostname -I | awk '{print $1}')
 MAC_ADDR=$(ip link show | awk '/link\/ether/ {print $2}')
-SUDO_LOG=$(grep COMMAND /var/log/sudo/sudo.log | wc -l)
+SUDO_LOG=$(grep -c COMMAND /var/log/sudo/sudo.log)
 
 wall "
        ------------------------------------------------
